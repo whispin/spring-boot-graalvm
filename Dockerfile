@@ -1,4 +1,5 @@
-FROM ghcr.io/graalvm/graalvm-community:21
+#FROM ghcr.io/graalvm/graalvm-community:21
+FROM ubuntu:jammy
 EXPOSE 8080
 ENV TZ "Africa/Johannesburg"
 
