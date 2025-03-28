@@ -42,3 +42,17 @@ jobs:
 
       - name: Package native image
         run: ls target/ # List the native image in the target directory.
+
+      - name: Copy native image
+        run: |
+          cp target/graalvm-explore app
+
+      - name: Build Docker image
+        run: |
+          docker build -t rentius2407/graalvm-explore:latest -f Dockerfile .
+          # If you want to push the image:
+          # docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} your-docker-registry
+          # docker push your-docker-registry/your-image-name:latest
+
+      - name: List docker image contents
+        run: ls docker/
