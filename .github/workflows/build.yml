@@ -56,8 +56,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push to dockerhub
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
-          context:
+          context: .
           push: true
           tags: rentius2407/graalvm-explore:latest
