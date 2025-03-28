@@ -53,8 +53,8 @@ jobs:
         run: |
           docker build -t rentius2407/graalvm-explore:latest -f Dockerfile .
           # If you want to push the image:
-          # docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} your-docker-registry
-          # docker push your-docker-registry/your-image-name:latest
+          docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} rentius2407
+          docker push rentius2407/graalvm-explore:latest
 
       - name: List docker image contents
         run: ls /
