@@ -5,6 +5,5 @@ USER 1000
 
 ENV TZ "Africa/Johannesburg"
 
-WORKDIR /app
-COPY app .
+COPY target/app /
 ENTRYPOINT ["./app"]

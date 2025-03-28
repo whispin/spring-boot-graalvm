@@ -45,7 +45,9 @@ jobs:
 
       - name: Copy native image
         run: |
-          cp target/graalvm-explore app
+          cp target/graalvm-explore target/app
+          ls target/
+          ls .
 
       - name: Build Docker image
         run: |
