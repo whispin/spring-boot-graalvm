@@ -55,4 +55,4 @@ jobs:
           # docker push your-docker-registry/your-image-name:latest
 
       - name: List docker image contents
-        run: ls docker/
+        run: ls /
