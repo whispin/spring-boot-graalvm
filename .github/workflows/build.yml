@@ -49,12 +49,15 @@ jobs:
           ls target/
           ls .
 
-      - name: Build Docker image
-        run: |
-          docker build -t rentius2407/graalvm-explore:latest -f Dockerfile .
-          # If you want to push the image:
-          docker login -u ${{ vars.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }} rentius2407
-          docker push rentius2407/graalvm-explore:latest
+      - name: Login to dockerhub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ vars.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: List docker image contents
-        run: ls /
+      - name: Build and push to dockerhub
+        uses: docker/build-push-action@v5
+        with:
+          context:
+          push: true
+          tags: rentius2407/graalvm-explore:latest
